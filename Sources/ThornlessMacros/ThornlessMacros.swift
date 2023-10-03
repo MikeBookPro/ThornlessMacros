@@ -8,4 +8,7 @@
 ///
 /// produces a tuple `(x + y, "x + y")`.
 @freestanding(expression)
-public macro stringify<T>(_ value: T) -> (T, String) = #externalMacro(module: "ThornlessMacrosMacros", type: "StringifyMacro")
+public macro stringify<T>(_ value: T) -> (T, String) = #externalMacro(module: "ThornlessMacrosImpl", type: "StringifyMacro")
+
+@attached(member, names: named(init))
+public macro PubliclyInitializable() = #externalMacro(module: "ThornlessMacrosImpl", type: "PubliclyInitializableMacro")
